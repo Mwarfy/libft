@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/11 16:49:17 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/11 18:09:21 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_putstr(char const *s)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	int i;
+	 t_list *new;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+	 if(!(new = ft_memalloc(sizeof(t_list))))
+		 return (NULL);
+	 new->content = (void*)content;
+	 new->content_size = content_size;
+	 new->next = NULL;
+	 return (new);
+
 }

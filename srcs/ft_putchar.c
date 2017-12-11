@@ -6,13 +6,16 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 07:19:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/09/12 15:20:51 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/06 19:26:25 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	if (sizeof(c) == 1)
+		write(1, &c, 1);
+	else
+		write(1, &c, 3);
 }

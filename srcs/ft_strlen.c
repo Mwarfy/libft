@@ -6,16 +6,18 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 07:22:05 by matranch          #+#    #+#             */
-/*   Updated: 2017/09/12 10:48:47 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/04 14:54:52 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s[i] != '\0')
 		i++;
 	return (i);
 }

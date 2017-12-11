@@ -1,25 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_nombre.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/10 18:17:40 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/10 19:34:47 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_putstr(char const *s)
+int		ft_nombre(char *s, int test, char c, int nb)
 {
 	int i;
+	int j;
+	int k;
 
 	i = 0;
+	j = 0;
+	k = 0;
 	while (s[i] != '\0')
 	{
-		ft_putchar(s[i]);
-		i++;
+		while (s[i] == c)
+			i++;
+		if (s[i])
+		{
+			while ((s[i] != c) && (s[i] != '\0'))
+			{
+				j++;
+				i++;
+			}
+		}
+		if ((k == nb) && (test == 2))
+			return (j);
+		k++;
+		j = 0;
 	}
+	if (test == 1)
+		return (k);
+	return (0);
 }

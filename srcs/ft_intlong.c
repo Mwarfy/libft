@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/05 15:53:00 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/07 18:33:43 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+int		ft_intlong(int nb)
 {
 	int i;
 
-	i = 0;
-	while (s[i] != '\0')
+	i = 1;
+	while (nb > 9)
 	{
-		ft_putchar(s[i]);
+		nb = nb / 10;
 		i++;
 	}
+	return (i);
 }

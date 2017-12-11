@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/04 15:55:20 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/07 16:45:26 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int i;
+	size_t i;
+	char *str1 = (char*)s1;
+	char *str2 = (char*)s2;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (!(*s2))
+		return ((char*)s1);
+	while(*str1 && n)
 	{
-		ft_putchar(s[i]);
-		i++;
+		s1 = str1;
+		s2 = str2;
+		i = n;
+		while (*s1 && i && !(*s1-*s2))
+		{
+			i--;
+		   	s1++;
+		   	s2++;
+		}
+		if(!*s2)
+			return(str1);
+		str1++;
+		n--;
 	}
+	return (NULL);
 }

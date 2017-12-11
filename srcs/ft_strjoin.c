@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/05 13:57:14 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/07 18:17:22 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
+	int		i;
+	int		j;
+	char	*str;
 
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	if(!(str = malloc(sizeof(char) * (i + j + 1))))
+		return (NULL);
 	i = 0;
-	while (s[i] != '\0')
+	while (s1[i])
 	{
-		ft_putchar(s[i]);
+		str[i] = s1[i];
 		i++;
 	}
+	j = 0;
+	while (s2[j])
+	{
+		str[i] = s2[j];
+		j++;
+		i++;
+	}
+	str[i] = 0;
+	return (str);
 }

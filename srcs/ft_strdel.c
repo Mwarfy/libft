@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 07:20:52 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:02:36 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/04 17:10:53 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/07 17:53:31 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_strdel(char **as)
 {
 	int i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (as[i] != '\0')
 	{
-		ft_putchar(s[i]);
+		as[i] = NULL;
+		free(as[i]);
 		i++;
 	}
+	as = NULL;
+	free(as);
 }
