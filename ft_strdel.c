@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 17:06:46 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 16:30:09 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/04 17:10:53 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:27:15 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_strdel(char **as)
 {
-	new->next = *alst;
-	*alst = new;
+	ft_memdel((void**)as);
 }

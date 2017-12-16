@@ -6,11 +6,11 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 14:23:19 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 21:10:22 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 22:28:27 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	**ft_strsplit(char const *s, char c)
 {

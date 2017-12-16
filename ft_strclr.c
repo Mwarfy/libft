@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 13:53:19 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 20:50:01 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/04 17:13:15 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:27:26 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void	ft_strclr(char *s)
 {
-	char	*str;
-	size_t	i;
+	int i;
 
-	str = ft_strdup("");
 	i = 0;
-	if (len > 0 && s)
+	while (s && s[i] && (s[i] != '\0'))
 	{
-		if (!(str = malloc(sizeof(char) * len + 1)))
-			return (NULL);
-		while (i < len)
-		{
-			str[i] = s[start];
-			i++;
-			start++;
-		}
-		str[i] = 0;
+		s[i] = '\0';
+		i++;
 	}
-	return (str);
 }

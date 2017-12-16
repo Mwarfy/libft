@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 17:07:56 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/14 16:56:59 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/05 15:26:02 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:28:40 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+char	*ft_itoa(int n)
 {
-	while (lst)
+	char	*str;
+	int		sign;
+	int		len;
+
+	str = NULL;
+	sign = 0;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n < 0)
 	{
-		(*f)(lst);
-		lst = lst->next;
+		sign = 1;
+		n = -n;
 	}
+	len = ft_intlong(n) + sign;
+	if (!(str = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n = n / 10;
+	}
+	if (sign)
+		str[0] = '-';
+	return (str);
 }

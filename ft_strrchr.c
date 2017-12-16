@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/05 17:56:22 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 20:48:52 by matranch         ###   ########.fr       */
+/*   Created: 2017/11/29 18:55:33 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:26:40 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
 	char	*str;
-	char	*str1;
 
-	str = (char*)s1;
-	str1 = (char*)s2;
 	i = 0;
-	if (!(*s2))
-		return ((char*)s1);
-	while (*str)
+	str = (char*)s;
+	i = ft_strlen(str);
+	while (i--)
 	{
-		s1 = str;
-		s2 = str1;
-		while (*s1 && !(*s1 - *s2))
-		{
-			s1++;
-			s2++;
-		}
-		if (!*s2)
-			return (str);
-		str++;
+		if (str[i] == (char)c)
+			return ((char *)s + i);
 	}
-	return (NULL);
+	if ((char)c == '\0')
+		return ((char *)s + ft_strlen(str));
+	return (0);
 }

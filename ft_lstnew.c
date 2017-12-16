@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 17:09:07 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 15:18:14 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/11 16:49:17 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:29:02 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *new;
-	t_list *tmp;
-	t_list *begin;
 
-	tmp = (f)(lst);
-	if (!(new = ft_lstnew(tmp->content, tmp->content_size)))
+	if (!(new = (t_list *)malloc(sizeof(t_list))))
 		return (NULL);
-	begin = new;
-	lst = lst->next;
-	while (lst)
+	if (content == NULL)
 	{
-		tmp = (f)(lst);
-		if (!(new->next = ft_lstnew(tmp->content, tmp->content_size)))
-			return (NULL);
-		new = new->next;
-		lst = lst->next;
+		new->content = NULL;
+		new->content_size = 0;
 	}
-	return (begin);
+	else
+	{
+		if (!(new->content = malloc(sizeof(*(content)) * content_size)))
+			return (NULL);
+		new->content = ft_memcpy(new->content, content, content_size);
+		new->content_size = content_size;
+	}
+	new->next = NULL;
+	return (new);
 }

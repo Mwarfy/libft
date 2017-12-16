@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 15:26:02 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 20:25:12 by matranch         ###   ########.fr       */
+/*   Created: 2017/09/05 17:56:22 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:26:54 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-char	*ft_itoa(int n)
+char	*ft_strstr(const char *s1, const char *s2)
 {
+	int		i;
 	char	*str;
-	int		sign;
-	int		len;
+	char	*str1;
 
-	str = NULL;
-	sign = 0;
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n < 0)
+	str = (char*)s1;
+	str1 = (char*)s2;
+	i = 0;
+	if (!(*s2))
+		return ((char*)s1);
+	while (*str)
 	{
-		sign = 1;
-		n = -n;
+		s1 = str;
+		s2 = str1;
+		while (*s1 && !(*s1 - *s2))
+		{
+			s1++;
+			s2++;
+		}
+		if (!*s2)
+			return (str);
+		str++;
 	}
-	len = ft_intlong(n) + sign;
-	if (!(str = malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	str[len] = '\0';
-	while (len--)
-	{
-		str[len] = n % 10 + '0';
-		n = n / 10;
-	}
-	if (sign)
-		str[0] = '-';
-	return (str);
+	return (NULL);
 }

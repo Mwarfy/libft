@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmalloc.c                                     :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 16:25:56 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 20:25:42 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/11 17:05:36 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:29:22 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))
 {
-	void *mem;
+	t_list *tmp;
 
-	mem = NULL;
-	if (size > 65535)
-		return (NULL);
-	if (size > 0)
+	while (*alst)
 	{
-		if (!(mem = malloc(size)))
-			return (NULL);
-		ft_memset(mem, 0, size);
+		tmp = (*alst)->next;
+		(*del)((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = tmp;
 	}
-	return (mem);
 }

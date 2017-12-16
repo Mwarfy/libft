@@ -6,11 +6,11 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 14:15:58 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 20:47:15 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 22:28:18 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {

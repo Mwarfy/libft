@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 17:04:09 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/14 16:47:52 by matranch         ###   ########.fr       */
+/*   Created: 2017/11/29 17:47:55 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:26:13 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_list *tmp;
+	char	*str1;
+	char	*str2;
 
-	(*del)((*alst)->content, (*alst)->content_size);
-	tmp = (*alst)->next;
-	free(*alst);
-	*alst = tmp;
+	str1 = (char*)src;
+	str2 = (char*)dest;
+	if (n > 65535)
+		return (NULL);
+	if (str1 < str2)
+		while (n--)
+			str2[n] = str1[n];
+	else
+	{
+		if (n > 0)
+			ft_memcpy(str2, str1, n);
+	}
+	return (str2);
 }

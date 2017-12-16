@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 17:14:47 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/16 15:51:01 by matranch         ###   ########.fr       */
+/*   Created: 2017/12/11 17:04:09 by matranch          #+#    #+#             */
+/*   Updated: 2017/12/16 22:34:25 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "libft.h"
 
-void	ft_striter(char *s, void (*f)(char *))
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	int i;
+	t_list *tmp;
 
-	i = 0;
-	if (s != NULL && (f) != NULL)
-	{
-		while (s[i])
-		{
-			(f)(&s[i]);
-			i++;
-		}
-	}
+	(*del)((*alst)->content, (*alst)->content_size);
+	tmp = (*alst)->next;
+	free(*alst);
+	*alst = tmp;
+	*alst = NULL;
 }
