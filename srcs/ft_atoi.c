@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:32:29 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/06 18:19:36 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:24:42 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_atoi(const char *nptr)
 {
-	int sign;
-	int i;
-	int nb;
+	int			sign;
+	int			i;
+	long long	nb;
 
 	sign = 1;
 	i = 0;

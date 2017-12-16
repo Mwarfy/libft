@@ -6,13 +6,13 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:11:56 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/05 16:34:35 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 21:32:55 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_condition(void)
+static void		ft_condition(void)
 {
 	int		i;
 	char	*a;
@@ -27,7 +27,7 @@ void	ft_condition(void)
 	}
 }
 
-void	ft_putnbr(int n)
+void			ft_putnbr(int n)
 {
 	if (n == (-2147483648))
 		ft_condition();

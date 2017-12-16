@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:52:32 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/06 18:42:17 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 19:20:30 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	str1 = (char*)s1;
 	str2 = (char*)s2;
 	i = 0;
+	if (n > 65535)
+		return (0);
 	if (n == 0)
 		return (0);
 	while ((str1[i] == str2[i]) && ((i + 1) < n))

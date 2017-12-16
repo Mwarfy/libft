@@ -6,22 +6,22 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 13:53:19 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/07 18:15:57 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:50:01 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
 	size_t	i;
 
-	str = NULL;
+	str = ft_strdup("");
 	i = 0;
-	if (len > 0)
+	if (len > 0 && s)
 	{
-		if(!(str = malloc(sizeof(char) * len + 1)))
+		if (!(str = malloc(sizeof(char) * len + 1)))
 			return (NULL);
 		while (i < len)
 		{

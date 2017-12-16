@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 14:23:19 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/10 19:34:13 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 21:10:22 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ char	**ft_strsplit(char const *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-	if (!(ptr = malloc(sizeof(char*) * ft_nombre((char*)s, 1, c, 0) + 1)))
+	if (!s || !(ptr = malloc(sizeof(char*) * ft_nombre((char*)s, 1, c, 0) + 1)))
 		return (NULL);
-	while(s[i] != '\0')
+	while (s[i] != '\0')
 	{
-		if (!(ptr[j] = malloc(sizeof(char) * ft_nombre((char*)s, 2, c, j) + 1)))
-			return (NULL);
+		ptr[j] = ft_memalloc(ft_nombre((char*)s, 2, c, j) + 1);
 		while (s[i] == c)
 			i++;
 		if (s[i])

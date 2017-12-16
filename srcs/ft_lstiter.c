@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:07:56 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/11 18:02:52 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/14 16:56:59 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	while (lst->next != NULL)
+	while (lst)
 	{
-		(*f)(lst->content);
+		(*f)(lst);
 		lst = lst->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/10 18:17:40 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/10 19:34:47 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 21:01:42 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ int		ft_nombre(char *s, int test, char c, int nb)
 	{
 		while (s[i] == c)
 			i++;
-		if (s[i])
+		while (s[i] && (s[i] != c) && (s[i] != '\0'))
 		{
-			while ((s[i] != c) && (s[i] != '\0'))
-			{
-				j++;
-				i++;
-			}
+			j++;
+			i++;
 		}
 		if ((k == nb) && (test == 2))
 			return (j);

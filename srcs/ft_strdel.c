@@ -6,23 +6,13 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:10:53 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/07 17:53:31 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:14:33 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 void	ft_strdel(char **as)
 {
-	int i;
-
-	i = 0;
-	while (as[i] != '\0')
-	{
-		as[i] = NULL;
-		free(as[i]);
-		i++;
-	}
-	as = NULL;
-	free(as);
+	ft_memdel((void**)as);
 }

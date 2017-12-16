@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 17:56:22 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/07 16:46:26 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:48:52 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 char	*ft_strstr(const char *s1, const char *s2)
 {
-	int i;
-	char *str = (char*)s1;
-	char *str1 = (char*)s2;
+	int		i;
+	char	*str;
+	char	*str1;
 
+	str = (char*)s1;
+	str1 = (char*)s2;
 	i = 0;
 	if (!(*s2))
 		return ((char*)s1);
-	while(*str)
+	while (*str)
 	{
 		s1 = str;
 		s2 = str1;
-		while(*s1 && !(*s1-*s2))
+		while (*s1 && !(*s1 - *s2))
 		{
 			s1++;
 			s2++;
 		}
-		if(!*s2)
-			return(str);
+		if (!*s2)
+			return (str);
 		str++;
 	}
 	return (NULL);

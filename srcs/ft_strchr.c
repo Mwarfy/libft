@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 18:53:48 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/07 14:36:42 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:55:21 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	if ((char)c == '\0')
-		return((char*)s + i);
+		return ((char*)s + i);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/11 17:06:46 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/11 17:55:08 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 16:30:09 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	new->next = NULL;
-	alst = NULL;
+	new->next = *alst;
+	*alst = new;
 }

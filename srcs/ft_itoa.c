@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 15:26:02 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/08 17:01:41 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:25:12 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_itoa(int n)
 		n = -n;
 	}
 	len = ft_intlong(n) + sign;
-	if(!(str = malloc(sizeof(char) * (len + 1))))
+	if (!(str = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	str[len] = '\0';
 	while (len--)

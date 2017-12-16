@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:43:28 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/06 19:08:30 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:56:14 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t 	i;
-	unsigned char*	str1;
-	unsigned char*	str2;
-	
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
 	str1 = (unsigned char*)dest;
-	str2 = (unsigned char*)src;	
+	str2 = (unsigned char*)src;
+	if (n > 65535)
+		return (NULL);
 	i = 0;
 	while (i < n)
 	{

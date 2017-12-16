@@ -6,7 +6,7 @@
 /*   By: matranch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 17:02:10 by matranch          #+#    #+#             */
-/*   Updated: 2017/12/07 18:04:09 by matranch         ###   ########.fr       */
+/*   Updated: 2017/12/16 20:06:05 by matranch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	int i;
-
-	i = 0;
-	while(ap[i] != '\0')
+	if (ap)
 	{
-		ap[i] = NULL;
-		free(ap[i]);
-		i++;
+		*ap = NULL;
+		free(*ap);
 	}
-	ap = NULL;
-	free(ap);
 }
